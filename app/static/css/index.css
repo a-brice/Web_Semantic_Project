@@ -1,0 +1,63 @@
+
+html{
+    scroll-behavior: smooth;
+}
+
+section:not(section#ban, section#card-feature){
+    width: 80%;
+    margin: 80px auto;
+}
+
+section#card-feature{
+    width: 80%;
+    margin: 30px auto 120px auto;
+}
+
+section h3{
+    margin-left: 30px; 
+    margin-bottom: 30px;
+}
+
+
+section#ban .div-ban{
+    min-height: 200px;
+    position: relative;
+}
+
+
+section#ban .ban-title{
+    font: 3.5em bold Verdana;
+    position: absolute;
+    top: 50px;
+    right: 140px;
+}
+
+section#ban .ban-title mark{
+    background-color: black;
+    color: aliceblue;
+}
+
+section#ban .img-ban{
+    width: 100%;
+}
+
+section#ban .ban-div-btn{
+    color: aliceblue;
+    position: absolute;
+    margin: auto;
+    top: 80%;
+    left: 32%;
+    width: 40%;
+    z-index: 1;
+}
+
+section#ban a.btn{
+    font-weight: bold;
+    border-width: 3px;
+}
+
+section#ban svg.waves{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

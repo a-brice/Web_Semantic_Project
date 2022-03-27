@@ -1,0 +1,120 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{%static 'css/index.css'%}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>University plus</title>
+</head>
+
+<body>
+    <header id="header-nav">
+        <nav class="navbar navbar-light bg-dark justify-content-between">
+            <a class="navbar-brand" style="color:#fff">School regroupment project</a>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Intelligent search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Find</button>
+            </form>
+        </nav>
+    </header>
+
+    <section id="ban">
+
+        <div class="div-ban">
+            <p class="ban-title"><mark>A essential step <br>of our lives.</mark></p>
+            <img class="img-ban" src="{% static 'img/school-teacher.jpg'%}" alt="banniere">
+            <div class="ban-div-btn row justify-content-between">
+                <a href="#compo"  class="btn-ban1 btn btn-outline-light btn-lg">Main objective</a>
+                <a href="#find" class="btn-ban2 btn btn-outline-light btn-lg">Find school near me</a>     
+            </div>
+            <svg class="waves" id="visual" viewBox="0 0 900 600"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><rect x="0" y="0" fill="#002233"></rect><path d="M0 558L10.7 562C21.3 566 42.7 574 64.2 577C85.7 580 107.3 578 128.8 577.5C150.3 577 171.7 578 193 579.5C214.3 581 235.7 583 257 579C278.3 575 299.7 565 321.2 562.2C342.7 559.3 364.3 563.7 385.8 567.7C407.3 571.7 428.7 575.3 450 575.8C471.3 576.3 492.7 573.7 514.2 569.2C535.7 564.7 557.3 558.3 578.8 559.8C600.3 561.3 621.7 570.7 643 572.8C664.3 575 685.7 570 707 568C728.3 566 749.7 567 771.2 570.7C792.7 574.3 814.3 580.7 835.8 583.7C857.3 586.7 878.7 586.3 889.3 586.2L900 586L900 601L889.3 601C878.7 601 857.3 601 835.8 601C814.3 601 792.7 601 771.2 601C749.7 601 728.3 601 707 601C685.7 601 664.3 601 643 601C621.7 601 600.3 601 578.8 601C557.3 601 535.7 601 514.2 601C492.7 601 471.3 601 450 601C428.7 601 407.3 601 385.8 601C364.3 601 342.7 601 321.2 601C299.7 601 278.3 601 257 601C235.7 601 214.3 601 193 601C171.7 601 150.3 601 128.8 601C107.3 601 85.7 601 64.2 601C42.7 601 21.3 601 10.7 601L0 601Z" fill="#ffffff" stroke-linecap="round" stroke-linejoin="miter"></path></svg>
+       
+        </div>
+    </section>
+
+    <section id="card-feature">
+        <h3>Discover</h3>
+
+        <div class="row justify-content-around">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'img/academy.jpg'%}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Academy</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'img/school.jpg'%}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">School</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'img/ministry.jpg'%}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Minitry</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center" style="margin-top: 30px;">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'img/employee.jpg'%}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Employee</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; margin-left: 30px;">
+                <img class="card-img-top" src="{% static 'img/student.jpg'%}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Student</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="compo">
+        <h3>Project composition</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, ipsam ipsum officia minima ab omnis, quod perferendis voluptatem, delectus numquam ratione molestias! Commodi molestias provident consectetur dicta incidunt ab nihil?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo ad ipsa, laudantium consequatur laborum accusantium quod? Fugiat cumque repudiandae atque recusandae, alias sint dolorum quod, ipsa voluptatibus reprehenderit totam reiciendis.
+        </p>
+    </section>
+
+    <section id="search">
+        <h3>Search for a specific school or student</h3>
+        <div style="border: 2px black solid; height: 200px;">
+
+        </div>
+    </section>
+
+    <section id="find">
+        <h3>Find the nearest school</h3>
+        
+        <div style="border: 2px black solid; height: 500px;">
+
+        </div>
+
+    </section>
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
