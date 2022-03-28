@@ -3,14 +3,23 @@ html{
     scroll-behavior: smooth;
 }
 
-section:not(section#ban, section#card-feature){
+section:not(section#ban){
     width: 80%;
-    margin: 80px auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 section#card-feature{
-    width: 80%;
-    margin: 30px auto 120px auto;
+    margin: 30px auto 170px auto;
+}
+
+section#card-feature a{
+    color: black;
+}
+
+section#card-feature .card:hover{
+    box-shadow: 2px 2px 2px grey;
+    transform: scale(1.05);
 }
 
 section h3{
@@ -61,3 +70,56 @@ section#ban svg.waves{
     bottom: 0;
     left: 0;
 }
+
+section#compo{
+    margin-bottom: 200px;
+}
+
+.search-icon{
+    width: 20px;
+    height: 20px;
+}
+
+#search{
+    margin-bottom: 200px;
+}
+
+#search .more-opt{
+    text-align: center;
+}
+
+
+#search .more-opt svg.bi-chevron-expand{
+    position: relative;
+    bottom: 1px;
+}
+
+#search .more-opt:hover{cursor: pointer;}
+
+
+#search .more-opt:hover p{
+    color: rgb(0, 162, 255);
+    text-decoration: underline;
+}
+
+#search .more-opt:hover svg.bi-chevron-expand{
+    fill: rgb(0, 162, 255);
+    transform: scale(1.2);
+}
+
+#search .hidden-search{
+    display: none;
+}
+
+div.map{
+    height: 500px;
+    margin-bottom: 100px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.map > div{
+    height: 100%;
+}
+
