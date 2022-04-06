@@ -10,20 +10,7 @@ import pandas as pd
 from . import models, query as q
 
 
-
-
-
-
-def school_query():
-    global school_query_res
-    school_query_res = q.query5()
-    
-
 school_query_res = None
-thread = threading.Thread(target=school_query)
-thread.start()
-
-
 
 
 def index(req):
@@ -56,10 +43,11 @@ def index(req):
 
 
 def get_school(req):
+    global school_query_res 
     context = dict()
     
-    thread.join()
-    
+    if school_query_res is None: 
+        school_query_res = q.query5()
 
     col = ['name', 'school', 'tel', 'siret', 'type', 'category','atitude', 'longitude', 'address', 'city', 'region', 'academy', 'ministry']
     
