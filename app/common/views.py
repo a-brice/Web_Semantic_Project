@@ -20,7 +20,11 @@ def index(req):
     )
     for uai, ser in loc.iterrows():
         posx, posy, uai, name = ser.x, ser.y, ser.uai, ser['name']
-        folium.Marker([posx, posy], popup=f"<b>{name}</b><p>UAI Code : {uai}</p>").add_to(map)
+        folium.Marker(
+            [posx, posy], 
+            popup=f"<b>{name}</b><p>UAI Code : {uai}</p>",
+            tooltip='Click here'
+        ).add_to(map)
     context = {'map':map._repr_html_()}
     
     # For ministry and Academy data
@@ -31,6 +35,9 @@ def index(req):
      
 
     return render(req, 'common/index.html', context)
+
+
+
 
 
 def get_school(req, entry=None):
@@ -48,7 +55,22 @@ def get_school(req, entry=None):
     return render(req, 'common/school.html', context=context)
 
 
+
+
+
+
 def get_person(req, type='student'):
     context = dict()
-    context['person'] = pd.DataFrame([range(5), range(5)]).to_html(index=False, classes='pers-df')
+    res = q.query10() if type=='student' else q.query11()
+    
+    student_info = pd.DataFrame([
+        [str(y) if hasattr(y, 'value') or y is None else y.split('#')[-1] for y in x] 
+        for x in res
+    ])
+    student_info.columns = ['?individual', 'type', 'firstName', 
+                'lastName', 'age', 'email', 'nationality', 
+                'tel', 'address', 'city']
+
+    context['person'] = student_info.to_html(index=False, classes='pers-df')
     return render(req, 'common/person.html', context=context)
+

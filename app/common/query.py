@@ -22,7 +22,7 @@ domain = """
 def get_json_obj(query_fn):
     thread.join()
     def func(*arg, **kw):
-        query = domain + query_fn(*arg, **kw) + 'LIMIT 50'
+        query = domain + query_fn(*arg, **kw) 
         db = models.graph
         return db.query(query)
     return func
@@ -39,7 +39,7 @@ def query1():
     return """ SELECT DISTINCT ?academy WHERE {
         ?academyId rdf:type :Academy .
         ?academyId foaf:name ?academy .
-    }
+    } LIMIT 75
     """
 
 
@@ -56,7 +56,7 @@ def query2():
             ?school rdf:type ?type .
             FILTER (?type = :Public || ?type = :Private)
             ?school :city ?city .
-        }
+        } LIMIT 75
     """
 
 
@@ -71,7 +71,7 @@ def query3():
     return """ SELECT DISTINCT ?ministry WHERE {
             ?ministryId rdf:type :Ministry .
             ?ministryId foaf:name ?ministry .
-        }
+        } LIMIT 75
     """
 
 
@@ -121,7 +121,7 @@ def query5():
                 ?school :hasMinistry ?ministryI .
                 ?ministryI foaf:name ?ministry .
             }
-        }
+        } LIMIT 30
     """
 
 
@@ -231,5 +231,78 @@ def query9():
             ?school_UAI :latitude ?latitude .
             ?school_UAI :longitude ?longitude .
             ?school_UAI foaf:name ?name .
+        } LIMIT 150
+    """
+
+
+
+@get_json_obj
+def query10():
+
+    """
+    List of all student 
+    """
+    return """
+        SELECT DISTINCT ?individual ?type ?firstName ?lastName 
+            ?age ?email ?nationality ?tel ?address ?city
+        WHERE {
+            ?individual rdf:type ?type .
+            FILTER (?type = :FullTime || ?type = :Apprentice)
+            ?individual foaf1:firstName ?firstName .
+            ?individual foaf1:lastName ?lastName .
+
+            OPTIONAL {
+                ?individual foaf1:age ?age .
+            }
+            OPTIONAL {
+                ?individual :email ?email .
+            }
+            OPTIONAL {
+                ?individual :nationality ?nationality .
+            }
+            OPTIONAL {
+                ?individual :telephone ?tel .
+            }
+            OPTIONAL {
+                ?individual :address ?address .
+            }
+            OPTIONAL {
+                ?individual :city ?city
+            }
         }
+
+    """
+
+
+@get_json_obj
+def query11():
+    return """
+        SELECT DISTINCT ?individual ?type ?firstName ?lastName 
+            ?age ?email ?nationality ?tel ?address ?city
+        WHERE {
+            ?individual rdf:type ?type .
+            FILTER (?type = :Administrative || ?type = :IT || ?type = :Professor)
+            ?individual foaf1:firstName ?firstName .
+            ?individual foaf1:lastName ?lastName .
+
+            OPTIONAL {
+                ?individual foaf1:age ?age .
+            }
+            OPTIONAL {
+                ?individual :email ?email .
+            }
+            OPTIONAL {
+                ?individual :nationality ?nationality .
+            }
+            OPTIONAL {
+                ?individual :telephone ?tel .
+            }
+            OPTIONAL {
+                ?individual :address ?address .
+            }
+            OPTIONAL {
+                ?individual :city ?city
+            }
+        }
+
     """
