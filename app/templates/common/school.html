@@ -1,0 +1,73 @@
+{% extends 'common/base.html'%}
+{%load static%}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/school.css' %}">
+{%endblock%}
+
+{% block main_content %}
+<style>
+
+body section#list{
+    width: 80%;
+    margin: 100px auto;
+}
+
+.sch{
+    border: 1px rgb(86, 86, 86) solid;
+    border-radius: 10px;
+    height: 200px;
+    margin-top: 20px;
+    display: flex;
+}
+
+.div-icon{
+    height: 160px;
+    width: 160px;
+    background: linear-gradient(to right, #bbd2c5, #536976, #292e49);
+    border-radius: 10px;
+    padding: 10px;
+    margin: auto 30px;
+}
+
+.sch-icon{
+    height: 100%;
+
+}
+
+.sch-content{
+    flex: 1;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.sch-content p{
+    line-height: 4px;
+}
+
+
+</style>
+
+<section id="list">
+    <div>
+       {% for i, s in schools %}
+        <div class="sch">
+            <div style="display: flex;">
+                <div class="div-icon">
+                    <img class="sch-icon" src="{% static 'img/school-icon.svg'%}" alt="school">
+                </div>
+            </div>
+
+            <div class="sch-content">
+                <h4>{{s.name}} - {{s.type}}</h4>
+                <br>
+                <p>City : {{s.city}}, {{s.region}}</p>
+                <p>Tel : {{s.tel}}</p>
+                <p>Category : {{s.category}}</p>
+                <p>SIRET : {{s.siret}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{%endblock%}

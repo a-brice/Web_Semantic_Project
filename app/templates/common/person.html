@@ -1,0 +1,69 @@
+{% extends 'common/base.html'%}
+{%load static%}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/person.css' %}">
+{%endblock%}
+
+{% block main_content %}
+
+<style>
+    section#list {
+        width: 80%;
+        margin: 80px auto;
+    }
+
+    .pers-list {
+        margin: 70px auto;
+    }
+
+    .pers-df {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 11pt;
+        font-family: Arial;
+        border: 1px solid silver;
+    }
+    .pers-df th{
+        padding: 5px;
+        text-align: center;
+    }
+
+    .pers-df td {
+        padding: 5px;
+    }
+
+    .pers-df tr:nth-child(even) {
+        background: #c0c9f594;
+    }
+
+    .pers-df tr:hover {
+        background: silver;
+        cursor: pointer;
+    }
+</style>
+
+<section id="list">
+    <div>
+        <div class="pers row justify-content-md-center">
+            <div class="btn-group col-md-6" role="group" aria-label="Basic example">
+                <a href="{% url 'person' 'student' %}" class="btn btn-st btn-success btn-group-lg">Student</a>
+                <a href="{% url 'person' 'employee' %}" class="btn btn-emp btn-success btn-group-lg">Employee</a>
+            </div>
+        </div>
+        <!-- Tab -->
+        <div class="pers-list">
+            {{person|safe}}
+        </div>
+    </div>
+</section>
+
+
+<script>
+    if (document.location.pathname == "/person/employee")
+        document.querySelector('.btn-emp').classList.add('active');
+    else
+        document.querySelector('.btn-st').classList.add('active');
+</script>
+{%endblock%}

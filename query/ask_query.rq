@@ -1,0 +1,20 @@
+PREFIX : <http://www.semanticweb.org/brice/ontologies/2022/2/TheOntology#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX ex: <http://www.example.com/>
+PREFIX ns: <http://www.w3.org/2003/06/sw-vocab-status/ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX wot: <http://xmlns.com/wot/0.1/>
+PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/spec/#>
+PREFIX foaf1: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+ASK {
+	?individual rdf:type ?type .
+	FILTER (?type = :FullTime || ?type = :Apprentice)
+	?individual foaf1:firstName "Edouard" .
+	?individual foaf1:lastName "Henri" .
+}
