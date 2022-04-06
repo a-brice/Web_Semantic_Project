@@ -15,9 +15,10 @@
 <body>
     <header id="header-nav">
         <nav class="navbar navbar-light bg-dark justify-content-between">
-            <a class="navbar-brand" style="color:#fff">School regroupment project</a>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Intelligent search">
+            <a class="navbar-brand" href="{% url 'index' %}" style="color:#fff">School regroupment project</a>
+            <form class="form-inline" action="{% url 'search_school' %}" method="post">
+                {% csrf_token %}
+                <input class="form-control mr-sm-2" type="search" name="s-bar" placeholder="Intelligent search">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Find</button>
             </form>
         </nav>

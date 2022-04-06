@@ -10,10 +10,8 @@ graph = None
 
 def load_data():
     global graph
-    # cwd = os.path.dirname(__file__)
-    # print(cwd) 
     g = Graph()
-    g.parse('./fo22.owl')
+    g.parse('./ontology/fo22.owl')
     graph = g
 
 

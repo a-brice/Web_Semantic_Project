@@ -7,48 +7,11 @@
 {%endblock%}
 
 {% block main_content %}
-<style>
-
-body section#list{
-    width: 80%;
-    margin: 100px auto;
-}
-
-.sch{
-    border: 1px rgb(86, 86, 86) solid;
-    border-radius: 10px;
-    height: 200px;
-    margin-top: 20px;
-    display: flex;
-}
-
-.div-icon{
-    height: 160px;
-    width: 160px;
-    background: linear-gradient(to right, #bbd2c5, #536976, #292e49);
-    border-radius: 10px;
-    padding: 10px;
-    margin: auto 30px;
-}
-
-.sch-icon{
-    height: 100%;
-
-}
-
-.sch-content{
-    flex: 1;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-.sch-content p{
-    line-height: 4px;
-}
-
-
-</style>
 
 <section id="list">
+    {% if not no_results %}
+    <h2><i>Results found</i></h2>
+    {% endif %}
     <div>
        {% for i, s in schools %}
         <div class="sch">
@@ -68,6 +31,12 @@ body section#list{
             </div>
         </div>
         {% endfor %}
+        {% if no_results %}
+        <div class="alert alert-warning" role="alert">
+            No results found !
+          </div>
+        {% endif %}
+        
     </div>
 </section>
 {%endblock%}
